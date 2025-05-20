@@ -1,0 +1,137 @@
+.event, .tournament, .home {
+    cursor: pointer;
+    padding: 30px 45px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.event-container {
+    padding: 10px;
+    background-color: white;
+    width: 300px;
+    aspect-ratio: 1;
+    border-radius: 5px;
+    border: solid 3px black;
+    box-shadow: 6px 6px 0 0 #00000057;
+    margin: auto;
+}
+
+.event-single, .tournament-single {
+    box-shadow: 3px 3px 0 0 #3abb49;
+}
+
+.event-single, .tournament-single {
+    background-color: #11d929;
+}
+
+.event-single:hover, .tournament-single:hover {
+    background-color: #4bf55f;
+}
+
+
+.event-single, .tournament-single {
+    cursor: pointer;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.tournament-add {
+    background-color: #0a9bd9;
+    box-shadow: 5px 5px 0 0 #42a7d3;
+}
+
+.tournament-add:hover {
+    background-color: #52bcee;
+}
+
+.tournament-delete {
+    /*background-color: #ff4173;*/
+    background-color: #fd658e;
+   /* box-shadow: 5px 5px 0 0 #fd658e; */
+    box-shadow: 5px 5px 0 0 #ff4173;
+}
+
+.tournament-delete:hover {
+    background-color: #f37997;
+}
+
+.event-add, .tournament-add {
+    background-color: #00e993;
+    box-shadow: 5px 5px 0 0 #01bd7c;
+}
+
+.event-add:hover, .tournament-add:hover {
+    background-color: #4effc6;
+}
+
+.event-delete, .tournament-delete {
+    background-color: #ff215d;
+    box-shadow: 5px 5px 0 0 #f30040;
+}
+
+.event-delete:hover, .tournament-delete:hover {
+    background-color: #fc668f;
+}
+
+.back {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #485159;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    box-shadow: 5px 5px 0 0 #383f44;
+}
+
+.back:hover {
+    background-color: #6c7a83;
+}
+
+.cancel {
+    margin: 35px auto 20px auto;
+    width: 30%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ff3e77;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.home {
+    background-color: #565b79;
+    box-shadow: 5px 5px 0 0 #3b3e4f;
+}
+
+.home:hover {
+    background-color: #6d759b;
+}
+
+button:active {
+    opacity: 0.75;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    margin: auto 15px;
+}
+
+.scale {
+    transition: 0.33s;
+}
+
+.scale:hover {
+    transform: scale(1.075);
+}

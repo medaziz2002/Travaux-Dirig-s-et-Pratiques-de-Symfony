@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TournoiController!{% endblock %}
+
+{% block body %}
+    <h1>{{ tournoi.getNom() }} </h1>
+    <div class="description">
+        {{ tournoi.getDescription() }}
+    </div>
+    <a href="{{ path('app_home') }}">
+        <button class="home">
+            Retour à l'accueil
+        </button>
+    </a>
+
+    <style>
+        html, body {
+            background-color: white;
+            text-align: center;
+        }
+        .description {
+            padding: 15px;
+            font-family: monospace;
+            font-size: 20px;
+            background-color: #fdfded;
+            width: 50%;
+            margin: 30px auto;
+            border-radius: 15px;
+            height: 200px;
+            border: solid 5px #bfbfbf;
+        }
+        h1 {
+            padding: 20px;
+            font-family: monospace;
+            background-color: white;
+            width: 40%;
+            border-radius: 10px;
+            margin: 10px auto auto auto;
+            font-size: 30px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+    </style>
+{% endblock %}

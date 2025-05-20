@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Supprimer des événements{% endblock %}
+
+{% block body %}
+    <h1>Supprimer des événements</h1>
+
+    <div class="container">
+        {{ form_start(form) }}
+        <div class="event-list">
+            {{ form_widget(form.event_ids) }}
+        </div>
+        <div class="form-actions">
+            {{ form_widget(form.supprimer) }}
+            <a class="back" href="{{ path('app_home') }}">Retour</a>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+
+    <style>
+        html, body {
+            background-color: white;
+            text-align: center;
+        }
+
+        h1 {
+            padding: 20px;
+            font-family: monospace;
+            background-color: white;
+            width: 40%;
+            border-radius: 10px;
+            margin: 10px auto auto auto;
+            font-size: 30px;
+        }
+
+        .container {
+            margin: 20px auto;
+            width: 60%;
+        }
+
+        .event-list div {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 25px 0;
+        }
+
+        .event-list div label {
+            margin: auto;
+            text-align: end;
+            width: 80%;
+        }
+
+        .event-list div input {
+            margin: auto;
+        }
+
+        form {
+            box-shadow: none;
+        }
+
+    </style>
+{% endblock %}

@@ -1,0 +1,133 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+    {% if not is_granted("ROLE_USER") and not is_granted("ROLE_ADMIN") and not is_granted("ROLE_BEACHER") %}
+        <div class="header scale">
+            <a href="{{ path('app_connexion') }}">
+                <h2 class="user-box">
+                    Connexion
+                </h2>
+            </a>
+        </div>
+    {% else %}
+        <div class="header scale">
+            <form class="formLogout" method="post" action="{{ path('app_deconnexion') }}">
+                <button>
+                    <h2 class="user-box">
+                        Déconnexion
+                    </h2>
+                </button>
+            </form>
+        </div>
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href=" {{ asset("styles/form.css") }}">
+    <h1>Liste des événements </h1>
+    <div class="container">
+        {% for event in evenements %}
+            <div class="event-container scale">
+                <h4>
+                    {{ event.nom }}
+                </h4>
+                <img class="event-img" src="{{ asset('img/event.png') }}" alt="">
+                <a href="{{ path('app_single_event', {'id': event.id}) }}">
+                    <button class="event-single">
+                        Consulter
+                    </button>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if evenements|length > 0 %}
+    <a href="{{ path('app_suppr_event') }}">
+        <button class="event event-delete">
+            Supprimer des événement
+        </button>
+    </a>
+    {% endif %}
+
+    <a href="{{ path('app_create_evenement') }}">
+        <button class="event event-add">
+            Ajouter un événement
+        </button>
+    </a>
+
+    <style>
+        html, body {
+            background-color: white;
+            text-align: center;
+        }
+        h1 {
+            padding: 20px;
+            font-family: monospace;
+            background-color: white;
+            width: 40%;
+            border-radius: 5px;
+            font-size: 30px;
+            border: solid 5px black;
+            box-shadow: 6px 6px 0 0 #00000057;
+            user-select: none;
+        }
+
+        h2 {
+            padding: 20px;
+            font-family: monospace;
+            background-color: white;
+            border-radius: 5px;
+            margin: auto;
+            font-size: 30px;
+            border: solid 5px black;
+            box-shadow: 6px 6px 0 0 #00000057;
+        }
+
+        .event-img {
+            width: 185px;
+            border-radius: 5px;
+            margin: 8px auto;
+            border: solid 1px #00000080;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 200px;
+            margin: 100px;
+        }
+
+        h4 {
+            margin: 5px auto 10px auto;
+            font-size: 18px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        form {
+            box-shadow: none;
+        }
+
+        .header {
+            width: fit-content;
+            float: right;
+        }
+
+        .formLogout {
+            background: none;
+            width: auto;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        .formLogout button {
+            color: black;
+
+        }
+
+    </style>
+{% endblock %}

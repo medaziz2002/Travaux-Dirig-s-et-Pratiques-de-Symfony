@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block resultat %}
+    <p>
+        {% if n_fact is defined %}
+            {{ n_fact }}! = {{ result }}
+        {% elseif n_comb is defined %}
+            {{ p }} parmi {{ n_comb }} = {{ result }}
+        {% endif %}
+    </p>
+{% endblock %}

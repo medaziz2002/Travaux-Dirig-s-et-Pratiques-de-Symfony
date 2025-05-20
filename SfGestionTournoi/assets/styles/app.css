@@ -1,0 +1,58 @@
+.flashes-success {
+    position: fixed;
+    height: 120px;
+    width: 400px;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    animation: slide 2.5s ease-in-out forwards;
+    z-index: 1000;
+    background-color: #0ad992;
+    color: white;
+    font-size: 25px;
+}
+
+.flashes-error {
+    position: fixed;
+    height: 120px;
+    width: 400px;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    animation: slide 2.5s ease-in-out forwards;
+    z-index: 1000;
+    background-color: #d90a52;
+    color: white;
+    font-size: 25px;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(400px);
+    }
+
+    10% {
+        transform: translateX(0px);
+    }
+
+    90% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(500px);
+        display: none;
+    }
+}
+
+html, body {
+    background-color: white;
+}

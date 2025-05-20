@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="{{path('app_connexion')}}" method="post" class="form form-connexion">
+            <h2>Connexion</h2>
+            <div class="input-container">
+                <label class="input-label" for="login">Login</label>
+                <input class="input" id="login" type="text" name="_username" placeholder="login123" required/>
+
+                <label class="input-label" for="password">Mot de passe</label>
+                <div class="password-container">
+                    <input class="input" id="current_password" type="password" name="_password" placeholder="password123" required/>
+                </div>
+            </div>
+        <div class="btn-container">
+            <button type="submit" class="btn-connexion event-add">Se connecter</button>
+            <a href="{{ path('app_home') }}">
+                <button type="submit" class="btn-connexion event-delete">Annuler</button>
+            </a>
+        </div>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <div class="insc-link-div">Vous n'avez pas de compte ? Inscrivez vous en cliquant
+            <a href="{{ path('app_inscription') }}" class="insc-link">Ici</a>
+        </div>
+    </form>
+    <div id="flashes-container">
+    <!-- Pour chaque message du type "success" -->
+    {% for message in app.flashes('success') %}
+        <span class="flashes flashes-success">{{ message }}</span>
+    {% endfor %}
+    <!-- Pour chaque message du type "error" -->
+    {% for message in app.flashes('error') %}
+        <span class="flashes flashes-error">{{ message }}</span>
+    {% endfor %}
+</div>
+
+    <style>
+        h2 {
+            font-size: 30px;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: row;
+            margin: 30px 0;
+        }
+        .input-container {
+            display: grid;
+        }
+
+        .input-container label {
+            margin: 40px auto 10px auto;
+        }
+
+        .btn-connexion {
+            margin: 25px auto;
+        }
+
+        .insc-link-div {
+            line-height: 30px;
+        }
+
+        a {
+            width: 46%;
+        }
+        form {
+            box-shadow: 6px 6px 0 0 #00000057;
+        }
+
+        form input {
+            box-shadow: 4px 4px 0 0 #00000057;
+        }
+    </style>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    <title>Inscription</title>
+{% endblock %}
+
+{% block body %}
+    <main>
+        {{ form_start(form, {'attr': {'class': 'inscription-form form'}}) }}
+        <fieldset>
+            <h2 class="form-title">Inscription</h2>
+            <div class="input-container">
+                {{ form_label(form.login) }}
+                {{ form_widget(form.login, { 'attr': {'class': 'input', 'placeholder': 'login123'} }) }}
+
+                {{ form_label(form.plainPassword, null, {
+                    'label': 'Mot de passe',
+                }, {'attr': {'class': 'label'}}) }}
+                {{ form_widget(form.plainPassword, { 'attr': {'class': 'input', 'placeholder': 'password123'} }) }}
+                <div class="btn-container">
+                    {{ form_widget(form.inscription, {'label': 'S\'inscrire', 'attr': {'class': 'btn-inscription event-add'}}) }}
+                    <a href="{{ path('app_home') }}">
+                        <button type="submit" class="btn-connexion event-delete">Annuler</button>
+                    </a>
+                </div>
+            </div>
+        </fieldset>
+        <div class="insc-link-div">Vous avez déjà un compte ?
+            <a href="{{ path('app_connexion') }}" class="insc-link"> Connectez-vous </a>
+        </div>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </main>
+    <style>
+        fieldset {
+            border: none;
+        }
+        .input-container {
+            display: grid;
+        }
+        .input-container label {
+            margin: 40px auto 10px auto;
+        }
+        a {
+            width: 46%;
+        }
+    </style>
+{%  endblock %}

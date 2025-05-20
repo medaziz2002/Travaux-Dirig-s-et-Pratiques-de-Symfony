@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Supprimer des tournois{% endblock %}
+
+{% block body %}
+    <h1>Supprimer des tournois</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <a href="{{ path('app_single_event', {'id': id}) }}">
+        <button class="btn btn-secondary back">Retour</button>
+    </a>
+
+    {{ form_end(form) }}
+
+    <style>
+
+        h1 {
+            padding: 20px;
+            font-family: monospace;
+            background-color: white;
+            width: 40%;
+            border-radius: 10px;
+            margin: 10px auto auto auto;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        #suppr_tournament_tournament_ids {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            margin: 50px auto;
+            line-height: 70px;
+            text-align: end;
+        }
+
+        #suppr_tournament_tournament_ids label {
+            width: 80%;
+        }
+
+        form {
+            box-shadow: none;
+        }
+
+    </style>
+{% endblock %}

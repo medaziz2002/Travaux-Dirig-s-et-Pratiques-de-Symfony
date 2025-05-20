@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EvenementController!{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {'attr': {'id': 'tournament-new'}}) }}
+    <h2>Créer un Tournoi</h2>
+    <p>Nom</p>
+    {{ form_widget(form.nom, {'attr': {"placeholder": "Nom du tournoi"}}) }}
+    <p>Description</p>
+    {{ form_widget(form.description, {'attr': {"placeholder": "Description"}}) }}
+    {{ form_widget(form.valider, {'id': 'event-new-submit', 'attr': {"class": "event-add", "placeholder": "Créer"}}) }}
+    <a href="{{ path('app_home') }}">
+        <button class="cancel event-delete">
+            Annuler
+        </button>
+    </a>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+
+    <style>
+        h2 {
+            font-size: 30px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        button:active {
+            opacity: 0.4;
+        }
+
+        form button {
+            width: 30%;
+        }
+
+        form input {
+            border: solid 4px black;
+            box-shadow: 4px 4px 0 0 #00000057;
+        }
+    </style>
+    </style>
+{% endblock %}

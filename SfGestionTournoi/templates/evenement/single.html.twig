@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TournoiController!{% endblock %}
+
+{% block body %}
+    <h1>{{ evenement.getNom() }} </h1>
+        {% if tournois|length > 0 %}
+            <div class="container">
+            {% for tournoi in tournois %}
+                <div class="event-container scale">
+                    <h4>
+                        {{ tournoi.nom }}
+                    </h4>
+                    <img class="event-img" src="{{ asset('img/tournament.png') }}" alt="">
+                    <a href="{{ path('app_single_tournament', {'id': tournoi.id}) }}">
+                        <button class="tournament-single">
+                            Consulter
+                        </button>
+                    </a>
+                </div>
+
+            {% endfor %}
+            </div>
+        {% else %}
+        <div class="any">Aucun tournoi en vue !</div>
+        {% endif %}
+
+    <a href="{{ path('app_create_tournament', {'id': evenement.id}) }}">
+        <button class="tournament tournament-add">
+            Ajouter un tournoi
+        </button>
+    </a>
+
+    {% if tournois|length > 0 %}
+        <a href="{{ path('app_suppr_tournament', {'id': evenement.id}) }}">
+            <button class="tournament tournament-delete">
+                Supprimer des tournois
+            </button>
+        </a>
+    {% endif %}
+
+    <a href="{{ path('app_home') }}">
+        <button class="home">
+            Retour
+        </button>
+    </a>
+
+    <style>
+        html, body {
+            background-color: white;
+            text-align: center;
+        }
+
+        .event-img {
+            width: 185px;
+            border-radius: 5px;
+            margin: 8px auto;
+            border: solid 1px #00000080;
+        }
+
+        h4 {
+            margin: 5px auto 10px auto;
+            font-size: 18px;
+        }
+
+        h1 {
+            padding: 20px;
+            font-family: monospace;
+            background-color: white;
+            width: 40%;
+            border-radius: 10px;
+            margin: 10px auto auto auto;
+            font-size: 30px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 200px;
+            padding: 125px;
+        }
+
+        h2 {
+            text-indent: 40px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .any {
+            width: 40%;
+            padding: 50px;
+            background-color: #fafae7;
+            margin: 75px auto;
+            font-size: 18px;
+            font-weight: bolder;
+            border-radius: 15px;
+        }
+
+    </style>
+{% endblock %}

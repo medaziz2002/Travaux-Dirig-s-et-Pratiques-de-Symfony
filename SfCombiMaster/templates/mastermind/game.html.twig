@@ -1,0 +1,43 @@
+{% block game %}
+<h1>Mastermind</h1>
+<form method="post">
+    <label for="proposition">Proposez une combinaison (4 chiffres) :</label>
+    <input type="text" name="proposition" maxlength="4" pattern="\d{4}" required>
+    <button type="submit">OK</button>
+</form>
+
+{% if history %}
+    <h2>Historique</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Proposition</th>
+            <th>Bien Placé(s)</th>
+            <th>Mal Placé(s)</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entry in history %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ entry.proposition }}</td>
+                <td>{{ entry.bienPlaces }}</td>
+                <td>{{ entry.malPlaces }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+{% for type, messages in app.flashes %}
+    <div class="flash-{{ type }}">
+        {% for message in messages %}
+            <div class="alert alert-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
+    
+{% endblock %}

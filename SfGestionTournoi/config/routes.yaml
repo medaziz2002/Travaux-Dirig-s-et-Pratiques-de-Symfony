@@ -1,0 +1,10 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+        _security_logout:
+            resource: security.route_loader.logout
+            type: service
+            methods: ['POST']
+    type: attribute
+
